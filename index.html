@@ -4,21 +4,22 @@
   <!-- made by ChatGPT -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Product information and story page." />
-  <title>Your Brand</title>
+  <meta name="description" content="Grandma’s sauce — product info and story." />
+  <title>Grandma’s Sauce</title>
 
   <style>
     :root{
-      --bg: #0b0f14;
-      --surface: rgba(255,255,255,.06);
-      --surface2: rgba(255,255,255,.09);
-      --border: rgba(255,255,255,.14);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --accent: #7dd3fc;
-      --accent2: #a78bfa;
+      /* Warm, homey palette */
+      --bg: #fbf4ea;          /* warm cream */
+      --paper: #fffaf2;       /* soft parchment */
+      --card: rgba(255,255,255,.78);
+      --border: rgba(91,52,28,.16); /* warm brown */
+      --text: #2f2016;        /* espresso */
+      --muted: rgba(47,32,22,.72);
+      --accent: #b23a2a;      /* tomato red */
+      --accent2:#d49a2a;      /* honey */
       --radius: 18px;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow: 0 18px 40px rgba(47,32,22,.12);
       --max: 1040px;
     }
 
@@ -26,33 +27,35 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.55;
       background:
-        radial-gradient(1000px 700px at 15% 0%, rgba(167,139,250,.18), transparent 60%),
-        radial-gradient(900px 650px at 85% 10%, rgba(125,211,252,.16), transparent 55%),
-        linear-gradient(180deg, #070910, var(--bg) 45%, #070910);
+        radial-gradient(1200px 700px at 15% 0%, rgba(178,58,42,.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(212,154,42,.12), transparent 55%),
+        linear-gradient(180deg, #fff7ed, var(--bg) 50%, #fff7ed);
     }
 
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
 
     /* Layout */
     .wrap{max-width:var(--max);margin:0 auto;padding:26px 18px 70px}
+
     .card{
       border:1px solid var(--border);
-      background: linear-gradient(180deg, var(--surface), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.58));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    /* Top header / banner */
+    /* Top banner */
     header{
       position:sticky;top:0;z-index:10;
-      background: rgba(11,15,20,.65);
+      background: rgba(255,250,242,.78);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.10);
+      border-bottom: 1px solid rgba(91,52,28,.14);
     }
     .topbar{
       max-width:var(--max);
@@ -61,61 +64,65 @@
       display:flex;align-items:center;justify-content:space-between;gap:12px;
     }
     .brand{
-      display:flex;align-items:center;gap:10px;font-weight:720;letter-spacing:.2px;
+      display:flex;align-items:center;gap:10px;
+      font-weight: 800;
+      letter-spacing: .2px;
     }
     .logo{
       width:34px;height:34px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
-      box-shadow: 0 10px 35px rgba(125,211,252,.15);
+      background: linear-gradient(135deg, rgba(178,58,42,.95), rgba(212,154,42,.95));
+      box-shadow: 0 10px 25px rgba(178,58,42,.18);
     }
-    nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     nav a{
-      font-size:14px;opacity:.9;
+      font-size:14px;
       padding:8px 10px;border-radius:999px;
       border:1px solid transparent;
+      color: rgba(47,32,22,.92);
     }
-    nav a:hover{opacity:1;border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+    nav a:hover{
+      border-color: rgba(91,52,28,.18);
+      background: rgba(212,154,42,.10);
+    }
 
     /* Hero */
     .hero{margin-top:22px;padding:26px}
     .kicker{
       display:inline-flex;align-items:center;gap:8px;
-      font-size:13px;color:var(--muted);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      font-size:13px;color: rgba(47,32,22,.74);
+      border:1px solid rgba(91,52,28,.14);
+      background: rgba(212,154,42,.10);
       padding:7px 10px;border-radius:999px;
     }
-    .dot{width:8px;height:8px;border-radius:999px;background:var(--accent)}
+    .dot{width:8px;height:8px;border-radius:999px;background: var(--accent)}
     h1{
       margin:14px 0 10px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.1;
+      font-size: clamp(32px, 4.2vw, 46px);
+      line-height: 1.08;
       letter-spacing: -.6px;
     }
     .sub{
       margin:0;
-      max-width: 62ch;
+      max-width: 64ch;
       color: var(--muted);
       font-size: 16px;
     }
-    .cta{
-      display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;
-    }
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:12px 14px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      border:1px solid rgba(91,52,28,.18);
+      background: rgba(255,255,255,.7);
       cursor:pointer;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      font-weight: 650;
+      font-weight: 750;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.88); border-color: rgba(91,52,28,.26)}
     .btn.primary{
-      border-color: rgba(125,211,252,.35);
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(167,139,250,.18));
+      border-color: rgba(178,58,42,.35);
+      background: linear-gradient(135deg, rgba(178,58,42,.18), rgba(212,154,42,.20));
     }
-    .btn.primary:hover{border-color: rgba(125,211,252,.55)}
+    .btn.primary:hover{border-color: rgba(178,58,42,.55)}
 
     /* Sections */
     section{margin-top:28px}
@@ -126,7 +133,7 @@
     .section-head h2{margin:0;font-size:20px;letter-spacing:-.2px}
     .section-head p{margin:0;color:var(--muted);font-size:14px}
 
-    /* Products grid */
+    /* Products */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -138,19 +145,24 @@
     .product{
       padding:14px;
       border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      border:1px solid rgba(91,52,28,.14);
+      background: rgba(255,255,255,.72);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       display:flex;flex-direction:column;gap:12px;
-      min-height: 290px;
+      min-height: 300px;
     }
-    .product:hover{transform: translateY(-2px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16)}
+    .product:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.86);
+      border-color: rgba(91,52,28,.22);
+    }
+
     .media{
-      height:160px;
+      height:170px;
       border-radius: 16px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid rgba(91,52,28,.14);
+      background: rgba(212,154,42,.10);
       display:flex;align-items:center;justify-content:center;
       position:relative;
     }
@@ -161,80 +173,84 @@
     }
     .media .placeholder{
       padding:12px 14px;
-      color: rgba(255,255,255,.65);
+      color: rgba(47,32,22,.72);
       font-size: 13px;
       text-align:center;
       background:
-        radial-gradient(120px 80px at 30% 30%, rgba(125,211,252,.20), transparent 60%),
-        radial-gradient(140px 90px at 70% 40%, rgba(167,139,250,.20), transparent 60%);
+        radial-gradient(140px 90px at 30% 30%, rgba(178,58,42,.10), transparent 60%),
+        radial-gradient(160px 100px at 70% 40%, rgba(212,154,42,.16), transparent 60%);
       width:100%;
       height:100%;
       display:flex;align-items:center;justify-content:center;
     }
-    .tag{
-      position:absolute;top:10px;left:10px;
+
+    .tag, .price{
+      position:absolute;top:10px;
       font-size:12px;
       padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.22);
-      color: rgba(255,255,255,.86);
+      border:1px solid rgba(91,52,28,.18);
+      background: rgba(255,250,242,.88);
+      color: rgba(47,32,22,.88);
     }
-    .price{
-      position:absolute;top:10px;right:10px;
-      font-weight: 760;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.22);
-    }
+    .tag{left:10px}
+    .price{right:10px;font-weight: 850}
+
     .product h3{margin:0;font-size:16px}
     .product p{margin:0;color:var(--muted);font-size:13px}
+
     .product .row{
       margin-top:auto;
       display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
     }
     .link{
       font-size:13px;
-      color: rgba(255,255,255,.88);
-      opacity:.9;
-      border-bottom:1px dashed rgba(255,255,255,.22);
+      color: rgba(178,58,42,.92);
+      opacity:.95;
+      border-bottom:1px dashed rgba(178,58,42,.35);
       padding-bottom:2px;
     }
-    .link:hover{opacity:1;border-bottom-color: rgba(255,255,255,.38)}
+    .link:hover{opacity:1;border-bottom-color: rgba(178,58,42,.55)}
 
-    /* Story + Contact cards */
+    /* Story + Contact */
     .two{
       display:grid;grid-template-columns: 1.1fr .9fr;gap:14px;
     }
     @media (max-width: 900px){ .two{grid-template-columns: 1fr;} }
     .pane{padding:18px}
     .muted{color:var(--muted)}
+    .callout{
+      border-radius: 16px;
+      border:1px dashed rgba(178,58,42,.28);
+      background: rgba(178,58,42,.06);
+      padding:14px;
+      color: rgba(47,32,22,.80);
+    }
 
-    /* Footer / ending banner */
+    /* Ending banner */
     .ending{
       margin-top:34px;
       padding:18px;
       border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(135deg, rgba(125,211,252,.10), rgba(167,139,250,.08));
+      border:1px solid rgba(91,52,28,.14);
+      background: linear-gradient(135deg, rgba(178,58,42,.10), rgba(212,154,42,.14));
     }
     .ending-top{
       display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;
     }
-    .small{font-size:13px;color: rgba(255,255,255,.70)}
+    .small{font-size:13px;color: rgba(47,32,22,.70)}
     .footer-links{display:flex;gap:12px;flex-wrap:wrap}
-    .footer-links a{opacity:.9}
+    .footer-links a{opacity:.95}
     .footer-links a:hover{opacity:1}
-    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
   </style>
 </head>
 
 <body>
-  <!-- Title banner / header -->
+  <!-- Title banner thing -->
   <header>
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <a href="#top" aria-label="Home">Your Brand</a>
+        <a href="#top" aria-label="Home">Grandma’s Sauce</a>
       </div>
 
       <nav aria-label="Primary">
@@ -248,15 +264,15 @@
   <main id="top" class="wrap">
     <!-- Hero -->
     <section class="card hero" aria-label="Intro">
-      <div class="kicker"><span class="dot" aria-hidden="true"></span> Simple • Elegant • Built to inform</div>
-      <h1>Products with a purpose — presented with clarity.</h1>
+      <div class="kicker"><span class="dot" aria-hidden="true"></span> Sunday-dinner comfort in every jar</div>
+      <h1>Grandma’s sauce — made the old-fashioned way.</h1>
       <p class="sub">
-        Use this page as a clean product overview and story. Add your own images, descriptions,
-        and links to buy or learn more.
+        A warm, simple page for sharing your product and the story behind it.
+        Swap in your photos, update the product names, and link the “Buy” buttons to your checkout.
       </p>
 
       <div class="cta">
-        <a class="btn primary" href="#products">View products</a>
+        <a class="btn primary" href="#products">See the sauces</a>
         <a class="btn" href="#story">Read our story</a>
       </div>
     </section>
@@ -265,96 +281,96 @@
     <section id="products" aria-label="Products">
       <div class="section-head">
         <h2>Products</h2>
-        <p>Cards support pictures, descriptions, price, and a link.</p>
+        <p>Photos + short descriptions. Keep it cozy and clear.</p>
       </div>
 
       <div class="grid">
-        <!-- Product card 1 -->
-        <article class="product" aria-label="Product 1">
+        <!-- Product 1 -->
+        <article class="product" aria-label="Classic Marinara">
           <div class="media">
-            <span class="tag">Featured</span>
-            <span class="price">$29</span>
+            <span class="tag">Classic</span>
+            <span class="price">$12</span>
 
-            <!-- Replace the placeholder with an image:
-                 <img src="images/product-1.jpg" alt="Product One" />
+            <!-- Replace with an image:
+              <img src="images/marinara.jpg" alt="Classic Marinara jar" />
             -->
             <div class="placeholder">
-              Add image: <code>images/product-1.jpg</code>
+              Add image: <code>images/marinara.jpg</code>
             </div>
           </div>
 
-          <h3>Product One</h3>
-          <p>A short description: what it is, who it’s for, and what makes it special.</p>
+          <h3>Classic Marinara</h3>
+          <p>Slow-simmered tomatoes, garlic, and herbs — bright, cozy, and family-table friendly.</p>
 
           <div class="row">
-            <a class="btn primary" href="#" title="Buy link">Learn / Buy</a>
-            <a class="link" href="#" title="Details link">Details</a>
+            <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
+            <a class="link" href="#" title="More details link">Ingredients</a>
           </div>
         </article>
 
-        <!-- Product card 2 -->
-        <article class="product" aria-label="Product 2">
+        <!-- Product 2 -->
+        <article class="product" aria-label="Spicy Arrabbiata">
           <div class="media">
-            <span class="tag">New</span>
-            <span class="price">$49</span>
+            <span class="tag">A little heat</span>
+            <span class="price">$12</span>
             <div class="placeholder">
-              Add image: <code>images/product-2.jpg</code>
+              Add image: <code>images/spicy.jpg</code>
             </div>
           </div>
 
-          <h3>Product Two</h3>
-          <p>Keep it simple and confident. One or two sentences is enough.</p>
+          <h3>Spicy Arrabbiata</h3>
+          <p>For the folks who like a kick — chili warmth balanced with a rich tomato base.</p>
 
           <div class="row">
-            <a class="btn primary" href="#" title="Buy link">Learn / Buy</a>
-            <a class="link" href="#" title="Details link">Details</a>
+            <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
+            <a class="link" href="#" title="More details link">Ingredients</a>
           </div>
         </article>
 
-        <!-- Product card 3 -->
-        <article class="product" aria-label="Product 3">
+        <!-- Product 3 -->
+        <article class="product" aria-label="Vodka Cream">
           <div class="media">
-            <span class="tag">Limited</span>
-            <span class="price">$19</span>
+            <span class="tag">Creamy</span>
+            <span class="price">$14</span>
             <div class="placeholder">
-              Add image: <code>images/product-3.jpg</code>
+              Add image: <code>images/vodka.jpg</code>
             </div>
           </div>
 
-          <h3>Product Three</h3>
-          <p>Optional: mention shipping timeline, materials, or what’s included.</p>
+          <h3>Tomato &amp; Cream</h3>
+          <p>Velvety and comforting — perfect for penne nights and “just one more bite.”</p>
 
           <div class="row">
-            <a class="btn primary" href="#" title="Buy link">Learn / Buy</a>
-            <a class="link" href="#" title="Details link">Details</a>
+            <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
+            <a class="link" href="#" title="More details link">Ingredients</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Story + Contact -->
+    <!-- Our Story + Contact -->
     <section class="two" aria-label="Story and Contact">
       <!-- Our Story -->
       <div id="story" class="card pane" aria-label="Our Story">
         <div class="section-head" style="margin-bottom:10px">
           <h2>Our Story</h2>
-          <p>Tell people why you exist.</p>
+          <p>Why this sauce matters.</p>
         </div>
 
         <p class="muted" style="margin-top:0">
-          Write a concise story: where you started, what you believe, and how the products reflect that.
-          Keep it human and specific.
+          This is where you tell the “grandma story” — the kitchen, the tradition, the little details that make it special.
+          Keep it personal, simple, and true.
         </p>
 
-        <p class="muted">
-          Example structure:
-          <br />• The spark (problem or inspiration)
-          <br />• The approach (materials, craft, design choices)
-          <br />• The promise (what customers can rely on)
-        </p>
+        <div class="callout">
+          <b>A simple template you can copy:</b><br />
+          “It started in Grandma’s kitchen every Sunday… (1–2 sentences).<br />
+          The recipe stayed the same because… (1–2 sentences).<br />
+          Today we make it so you can… (1 sentence).”
+        </div>
 
-        <p class="muted" style="margin-bottom:0">
-          Tip: 150–250 words is usually perfect for a single-page story section.
+        <p class="muted" style="margin-bottom:0;margin-top:12px">
+          Tip: add one old family photo here later for extra warmth and authenticity.
         </p>
       </div>
 
@@ -366,42 +382,41 @@
         </div>
 
         <p class="muted" style="margin-top:0">
-          Add a contact form provider later (Formspree, Basin, Google Forms, etc.),
-          or simply list your email and social links.
+          Add a working form later (Formspree, Basin, etc.) or keep it simple with an email.
         </p>
 
-        <div class="card" style="padding:14px;border-radius:16px;background:rgba(255,255,255,.05);box-shadow:none">
+        <div class="card" style="padding:14px;border-radius:16px;background:rgba(255,255,255,.72);box-shadow:none">
           <p class="muted" style="margin:0">
-            <b style="color:var(--text)">Email:</b> support@yourdomain.com<br />
-            <b style="color:var(--text)">Hours:</b> Mon–Fri, 9am–5pm<br />
-            <b style="color:var(--text)">Location:</b> (optional)
+            <b style="color:var(--text)">Email:</b> hello@yourdomain.com<br />
+            <b style="color:var(--text)">Questions about:</b> ingredients, allergens, shipping<br />
+            <b style="color:var(--text)">Wholesale:</b> (optional)
           </p>
         </div>
 
         <p class="muted" style="margin-bottom:0;margin-top:12px">
-          Want a working form? Replace this section with a simple embedded form link.
+          Want me to wire up a real form? Tell me which service you want to use.
         </p>
       </div>
     </section>
 
-    <!-- Ending banner / footer -->
+    <!-- Ending banner with info -->
     <section class="ending" aria-label="Ending Banner">
       <div class="ending-top">
         <div>
-          <div style="font-weight:760;letter-spacing:.2px">Your Brand</div>
-          <div class="small">A short tagline that matches your vibe.</div>
+          <div style="font-weight:900;letter-spacing:.2px">Grandma’s Sauce</div>
+          <div class="small">Made with patience • Shared with love</div>
         </div>
 
         <div class="footer-links">
-          <a class="link" href="#products">Products</a>
-          <a class="link" href="#story">Our Story</a>
-          <a class="link" href="#contact">Contact</a>
+          <a href="#products">Products</a>
+          <a href="#story">Our Story</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
 
       <div class="small" style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-        <div>© <span id="year"></span> Your Brand. All rights reserved.</div>
-        <div class="small">Policies: <span class="muted">Shipping • Returns • Privacy</span></div>
+        <div>© <span id="year"></span> Grandma’s Sauce. All rights reserved.</div>
+        <div class="small">Info: <span class="muted">Ingredients • Allergens • Shipping • Returns</span></div>
       </div>
     </section>
   </main>
