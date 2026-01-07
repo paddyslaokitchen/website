@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- made by ChatGPT -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A simple, elegant storefront for selling products." />
+  <title>Your Shop</title>
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --border: rgba(255,255,255,.12);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 0%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(125,211,252,.16), transparent 55%),
+        linear-gradient(180deg, #070a10 0%, var(--bg) 45%, #070a10 100%);
+      line-height: 1.5;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 60px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      position:sticky;top:0;z-index:10;
+      padding:14px 18px;margin:0 -18px;
+      background: rgba(11,15,23,.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:.2px}
+    .logo{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
+      box-shadow: 0 10px 35px rgba(125,211,252,.15);
+    }
+    .nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{opacity:.9;font-size:14px}
+    .nav a:hover{opacity:1}
+    .pill{
+      padding:9px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero{
+      display:grid;gap:18px;
+      grid-template-columns: 1.15fr .85fr;
+      margin-top:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-left{padding:26px}
+    .kicker{
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:13px;color:var(--muted);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding:7px 10px;border-radius:999px;
+    }
+    .dot{width:8px;height:8px;border-radius:999px;background: var(--accent)}
+    h1{
+      margin:14px 0 8px;
+      font-size: clamp(30px, 3.8vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -.6px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 56ch;
+    }
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      font-weight: 620;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      border-color: rgba(125,211,252,.35);
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(167,139,250,.18));
+    }
+    .btn.primary:hover{border-color: rgba(125,211,252,.55)}
+    .fineprint{
+      margin-top:14px;
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+    }
+
+    .hero-right{padding:18px;display:flex;flex-direction:column;gap:12px}
+    .stat{
+      padding:16px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .stat b{display:block;font-size:18px}
+    .stat span{color:var(--muted);font-size:13px}
+
+    section{margin-top:28px}
+    .section-head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .section-head h2{margin:0;font-size:20px;letter-spacing:-.2px}
+    .section-head p{margin:0;color:var(--muted);font-size:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 620px){ .grid{grid-template-columns: 1fr;} }
+
+    .product{
+      padding:14px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      display:flex;flex-direction:column;gap:12px;
+      min-height: 250px;
+    }
+    .product:hover{transform: translateY(-2px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16)}
+    .thumb{
+      height:140px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(120px 80px at 30% 30%, rgba(125,211,252,.22), transparent 60%),
+        radial-gradient(140px 90px at 70% 40%, rgba(167,139,250,.22), transparent 60%),
+        rgba(255,255,255,.04);
+      display:flex;align-items:flex-end;justify-content:space-between;
+      padding:12px;
+    }
+    .badge{
+      font-size:12px;color: rgba(255,255,255,.86);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.2);
+      padding:6px 10px;border-radius:999px;
+    }
+    .price{font-weight:750;letter-spacing:.2px}
+    .product h3{margin:0;font-size:16px}
+    .product p{margin:0;color:var(--muted);font-size:13px}
+    .product .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .link{
+      font-size:13px;color: rgba(255,255,255,.88);
+      opacity:.9;
+      border-bottom:1px dashed rgba(255,255,255,.22);
+    }
+    .link:hover{opacity:1;border-bottom-color: rgba(255,255,255,.38)}
+
+    .feature{
+      display:grid;grid-template-columns: 1fr 1fr;gap:14px;
+    }
+    @media (max-width: 900px){ .feature{grid-template-columns: 1fr;} }
+    .feature .pane{padding:18px}
+    .bullets{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .bullets li{
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .bullets b{color: var(--text);font-weight:650}
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    details summary{cursor:pointer;font-weight:650}
+    details p{margin:10px 0 0;color:var(--muted);font-size:14px}
+
+    .contact{
+      display:grid;grid-template-columns: 1fr 1fr;gap:14px;
+    }
+    @media (max-width: 900px){ .contact{grid-template-columns: 1fr;} }
+    .contact .pane{padding:18px}
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      padding: 12px 12px;
+      outline:none;
+      font: inherit;
+    }
+    textarea{min-height:120px;resize:vertical}
+    label{display:block;font-size:13px;color: var(--muted);margin: 10px 0 6px}
+    .note{font-size:13px;color: rgba(255,255,255,.62);margin-top:10px}
+
+    footer{
+      margin-top:34px;
+      padding-top:18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+
+    /* tiny icon */
+    .arrow{width:14px;height:14px;display:inline-block}
+    .arrow svg{width:14px;height:14px;opacity:.9}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <a href="#" aria-label="Home">Your Shop</a>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#products">Products</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="pill">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-label="Hero">
+      <div class="card hero-left">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> Simple. Elegant. Ready to sell.</div>
+        <h1>Beautiful products, presented with clarity.</h1>
+        <p class="sub">
+          A minimalist storefront template you can deploy on GitHub Pages.
+          Swap in your products, connect your checkout, and you’re live.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#products">
+            Browse products
+            <span class="arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="btn" href="#contact">Ask a question</a>
+        </div>
+
+        <div class="fineprint">
+          Tip: link “Buy” buttons to Stripe Payment Links, Shopify, Gumroad, or any checkout URL.
+        </div>
+      </div>
+
+      <aside class="card hero-right" aria-label="Highlights">
+        <div class="stat">
+          <b>Fast & responsive</b>
+          <span>Looks great on mobile, tablet, and desktop.</span>
+        </div>
+        <div class="stat">
+          <b>Single-file setup</b>
+          <span>Just commit <code>index.html</code> to your repo.</span>
+        </div>
+        <div class="stat">
+          <b>Easy checkout</b>
+          <span>Connect any external payment/checkout link.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products" aria-label="Products">
+      <div class="section-head">
+        <h2>Products</h2>
+        <p>Replace these cards with your real items.</p>
+      </div>
+
+      <div class="grid">
+        <article class="product">
+          <div class="thumb">
+            <span class="badge">Best seller</span>
+            <span class="price">$29</span>
+          </div>
+          <h3>Product One</h3>
+          <p>A short, punchy description that explains what it is.</p>
+          <div class="row">
+            <a class="btn primary" href="https://example.com/checkout" target="_blank" rel="noopener">Buy</a>
+            <a class="link" href="https://example.com/product" target="_blank" rel="noopener">Details</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="thumb">
+            <span class="badge">New</span>
+            <span class="price">$49</span>
+          </div>
+          <h3>Product Two</h3>
+          <p>Keep it simple: what problem does it solve or what vibe is it?</p>
+          <div class="row">
+            <a class="btn primary" href="https://example.com/checkout" target="_blank" rel="noopener">Buy</a>
+            <a class="link" href="https://example.com/product" target="_blank" rel="noopener">Details</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="thumb">
+            <span class="badge">Limited</span>
+            <span class="price">$19</span>
+          </div>
+          <h3>Product Three</h3>
+          <p>Optional: mention shipping, turnaround time, or format (digital/physical).</p>
+          <div class="row">
+            <a class="btn primary" href="https://example.com/checkout" target="_blank" rel="noopener">Buy</a>
+            <a class="link" href="https://example.com/product" target="_blank" rel="noopener">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="why" aria-label="Why us">
+      <div class="section-head">
+        <h2>Why customers choose you</h2>
+        <p>Three quick proof points. Keep it honest and specific.</p>
+      </div>
+
+      <div class="feature">
+        <div class="card pane">
+          <h3 style="margin:0 0 8px;font-size:16px;">Simple, premium presentation</h3>
+          <p style="margin:0;color:var(--muted);font-size:14px;">
+            Clean spacing, soft gradients, and subtle borders—designed to feel modern without being loud.
+          </p>
+          <ul class="bullets">
+            <li><b>Clear value:</b> short descriptions, visible pricing, and a direct call-to-action.</li>
+            <li><b>Trust-friendly:</b> space for policies, contact, and FAQs.</li>
+            <li><b>Easy edits:</b> change text in one place—no tooling required.</li>
+          </ul>
+        </div>
+
+        <div class="card pane">
+          <h3 style="margin:0 0 8px;font-size:16px;">Add your real checkout</h3>
+          <p style="margin:0;color:var(--muted);font-size:14px;">
+            Keep GitHub Pages static and link out to your checkout provider.
+          </p>
+          <ul class="bullets">
+            <li><b>Stripe Payment Links:</b> fastest path for a single product.</li>
+            <li><b>Shopify:</b> full store, inventory, shipping, taxes.</li>
+            <li><b>Gumroad / Lemon Squeezy:</b> great for digital goods.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" aria-label="FAQ">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>Answer the common questions up front.</p>
+      </div>
+
+      <div style="display:grid;gap:10px;">
+        <details>
+          <summary>What’s your shipping / delivery timeline?</summary>
+          <p>Put a clear estimate here (e.g., “Ships in 2–3 business days” or “Instant digital download”).</p>
+        </details>
+        <details>
+          <summary>Do you offer refunds?</summary>
+          <p>State your policy in plain language. Link to a full policy page if needed.</p>
+        </details>
+        <details>
+          <summary>How do I contact you?</summary>
+          <p>Use the contact form below or list an email address for support.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Simple form (you can connect it to Formspree or similar).</p>
+      </div>
+
+      <div class="contact">
+        <div class="card pane">
+          <h3 style="margin:0 0 10px;font-size:16px;">Send a message</h3>
+
+          <!--
+            This form is static by default. To make it work on GitHub Pages:
+            - Formspree: set action="https://formspree.io/f/yourFormId" method="POST"
+            - Or Netlify Forms (if deploying on Netlify)
+          -->
+          <form action="#" method="post" onsubmit="return fakeSubmit(event)">
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Jane Doe" autocomplete="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What can I help with?" required></textarea>
+
+            <div class="cta-row" style="margin-top:12px">
+              <button class="btn primary" type="submit">Send</button>
+              <a class="btn" href="#products">Back to products</a>
+            </div>
+
+            <p class="note" id="form-note" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="card pane">
+          <h3 style="margin:0 0 10px;font-size:16px;">Business info</h3>
+          <p style="margin:0;color:var(--muted);font-size:14px;">
+            Add your support email, hours, and any quick policies.
+          </p>
+
+          <ul class="bullets" style="margin-top:12px">
+            <li><b>Email:</b> support@yourdomain.com</li>
+            <li><b>Hours:</b> Mon–Fri, 9am–5pm</li>
+            <li><b>Returns:</b> 14-day return window (example)</li>
+          </ul>
+
+          <p class="note" style="margin-top:12px">
+            Optional: add social links in the footer (Instagram, X, etc.).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Your Shop. All rights reserved.</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="link" href="#products">Products</a>
+        <a class="link" href="#faq">FAQ</a>
+        <a class="link" href="#contact">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // made by ChatGPT
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple fake submit for static hosting (replace with Formspree/checkout integrations)
+    function fakeSubmit(e){
+      e.preventDefault();
+      const note = document.getElementById("form-note");
+      note.textContent = "Form is currently not connected. Hook it up to Formspree (or similar) to receive messages.";
+      return false;
+    }
+  </script>
+</body>
+</html>
