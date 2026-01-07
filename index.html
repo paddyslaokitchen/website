@@ -4,8 +4,8 @@
   <!-- made by ChatGPT -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Grandma’s sauce — product info and story." />
-  <title>Grandma’s Sauce</title>
+  <meta name="description" content="Paddy's Lao Kitchen" />
+  <title>Paddy's Lao Kitchen</title>
 
   <style>
     :root{
@@ -211,11 +211,7 @@
     }
     .link:hover{opacity:1;border-bottom-color: rgba(178,58,42,.55)}
 
-    /* Story + Contact */
-    .two{
-      display:grid;grid-template-columns: 1.1fr .9fr;gap:14px;
-    }
-    @media (max-width: 900px){ .two{grid-template-columns: 1fr;} }
+    /* Story + Contact (now individual rows) */
     .pane{padding:18px}
     .muted{color:var(--muted)}
     .callout{
@@ -250,7 +246,7 @@
     <div class="topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <a href="#top" aria-label="Home">Grandma’s Sauce</a>
+        <a href="#top" aria-label="Home">Paddy's Lao Kitchen</a>
       </div>
 
       <nav aria-label="Primary">
@@ -264,11 +260,10 @@
   <main id="top" class="wrap">
     <!-- Hero -->
     <section class="card hero" aria-label="Intro">
-      <div class="kicker"><span class="dot" aria-hidden="true"></span> Sunday-dinner comfort in every jar</div>
-      <h1>Grandma’s sauce — made the old-fashioned way.</h1>
+      <div class="kicker"><span class="dot" aria-hidden="true"></span> Bringing the taste of Lao to your home </div>
+      <h1>Paddy's Lao Kitchen — Laos products made the old-fashioned way.</h1>
       <p class="sub">
-        A warm, simple page for sharing your product and the story behind it.
-        Swap in your photos, update the product names, and link the “Buy” buttons to your checkout.
+        Sharing the taste of Laotian cuisine.
       </p>
 
       <div class="cta">
@@ -281,12 +276,12 @@
     <section id="products" aria-label="Products">
       <div class="section-head">
         <h2>Products</h2>
-        <p>Photos + short descriptions. Keep it cozy and clear.</p>
+        <!-- <p>Photos + short descriptions. Keep it cozy and clear.</p> -->
       </div>
 
       <div class="grid">
         <!-- Product 1 -->
-        <article class="product" aria-label="Classic Marinara">
+        <article class="product" aria-label="Jeow Bomb">
           <div class="media">
             <span class="tag">Classic</span>
             <span class="price">$12</span>
@@ -299,8 +294,9 @@
             </div>
           </div>
 
-          <h3>Classic Marinara</h3>
-          <p>Slow-simmered tomatoes, garlic, and herbs — bright, cozy, and family-table friendly.</p>
+          <h3>Jeow Bomb</h3>
+          <p>Classic Lao Jeow Bong. Sweet and spicy, onion and garlic chili jam. <br />
+          Ingredients:</p>
 
           <div class="row">
             <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
@@ -309,17 +305,17 @@
         </article>
 
         <!-- Product 2 -->
-        <article class="product" aria-label="Spicy Arrabbiata">
+        <article class="product" aria-label="Jeow Som">
           <div class="media">
-            <span class="tag">A little heat</span>
+            <span class="tag">Classic</span>
             <span class="price">$12</span>
             <div class="placeholder">
               Add image: <code>images/spicy.jpg</code>
             </div>
           </div>
 
-          <h3>Spicy Arrabbiata</h3>
-          <p>For the folks who like a kick — chili warmth balanced with a rich tomato base.</p>
+          <h3>Jeow Som</h3>
+          <p>Coming soon!</p>
 
           <div class="row">
             <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
@@ -328,17 +324,17 @@
         </article>
 
         <!-- Product 3 -->
-        <article class="product" aria-label="Vodka Cream">
+        <article class="product" aria-label="tbd">
           <div class="media">
-            <span class="tag">Creamy</span>
+            <span class="tag">Coming soon</span>
             <span class="price">$14</span>
             <div class="placeholder">
               Add image: <code>images/vodka.jpg</code>
             </div>
           </div>
 
-          <h3>Tomato &amp; Cream</h3>
-          <p>Velvety and comforting — perfect for penne nights and “just one more bite.”</p>
+          <h3>Coming soon!</h3>
+          <p>Coming soon!</p>
 
           <div class="row">
             <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
@@ -348,10 +344,9 @@
       </div>
     </section>
 
-    <!-- Our Story + Contact -->
-    <section class="two" aria-label="Story and Contact">
-      <!-- Our Story -->
-      <div id="story" class="card pane" aria-label="Our Story">
+    <!-- Our Story (Row 1) -->
+    <section id="story" aria-label="Our Story">
+      <div class="card pane">
         <div class="section-head" style="margin-bottom:10px">
           <h2>Our Story</h2>
           <p>Why this sauce matters.</p>
@@ -373,9 +368,11 @@
           Tip: add one old family photo here later for extra warmth and authenticity.
         </p>
       </div>
+    </section>
 
-      <!-- Contact placeholder -->
-      <div id="contact" class="card pane" aria-label="Contact Us">
+    <!-- Contact Us (Row 2) -->
+    <section id="contact" aria-label="Contact Us">
+      <div class="card pane">
         <div class="section-head" style="margin-bottom:10px">
           <h2>Contact Us</h2>
           <p>Placeholder for now.</p>
