@@ -261,7 +261,7 @@
     <!-- Hero -->
     <section class="card hero" aria-label="Intro">
       <div class="kicker"><span class="dot" aria-hidden="true"></span> Bringing the taste of Lao to your home </div>
-      <h1>Paddy's Lao Kitchen — Laos products made the old-fashioned way.</h1>
+      <h1>Paddy's Lao Kitchen — Laotian products with a modern twist.</h1>
       <p class="sub">
         Sharing the taste of Laotian cuisine.
       </p>
@@ -286,17 +286,13 @@
             <span class="tag">Classic</span>
             <!-- <span class="price">$12</span> -->
 
-            <!-- Replace with an image:
-              <img src="images/marinara.jpg" alt="Classic Marinara jar" />
-            -->
-            <div class="placeholder">
-              Add image
-            </div>
+              <img src="images/jeow_bomb.png" alt="Jeow Bomb" />
+
           </div>
 
           <h3>Jeow Bomb</h3>
           <p>Classic Lao Jeow Bong. Sweet and spicy, onion and garlic chili jam. <br /> <br />
-          Ingredients:</p>
+          Ingredients: Water, onions, garlic, Kosher salt, cane sugar, MSG, vegetable oil, tamarind paste, dried galangal, dried chili peppers</p>
 
           <!-- <div class="row">
             <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
@@ -310,9 +306,7 @@
           <div class="media">
             <span class="tag">Classic</span>
             <!-- <span class="price">$12</span> -->
-            <div class="placeholder">
-              Add image
-            </div>
+ 
           </div>
 
           <h3>Jeow Som</h3>
@@ -324,25 +318,15 @@
           </div> -->
         </article>
 
-        <!-- Product 3 -->
-        <article class="product" aria-label="tbd">
-          <div class="media">
-            <span class="tag">Coming soon</span>
-            <!-- <span class="price">$14</span> -->
-            <div class="placeholder">
-              Add image
-            </div>
-          </div>
 
-          <h3>Coming soon!</h3>
-          <p>Coming soon!</p>
 
-          <!-- <div class="row">
-            <a class="btn primary" href="#" title="Checkout link">Buy a jar</a>
-            <a class="link" href="#" title="More details link">Ingredients</a>
-          </div> -->
-        </article>
+
+
       </div>
+
+
+
+
     </section>
 
     <!-- Our Story (Row 1) -->
@@ -354,8 +338,7 @@
         </div>
 
         <p class="muted" style="margin-top:0">
-          This is where you tell the “grandma story” — the kitchen, the tradition, the little details that make it special.
-          Keep it personal, simple, and true.
+          To do
         </p>
 
         <!-- <div class="callout">
@@ -365,9 +348,6 @@
           Today we make it so you can… (1 sentence).”
         </div> --> 
 
-        <p class="muted" style="margin-bottom:0;margin-top:12px">
-          Tip: add one old family photo here later for extra warmth and authenticity.
-        </p>
       </div>
     </section>
 
@@ -383,6 +363,48 @@
           Add a working form later (Formspree, Basin, etc.) or keep it simple with an email.
         </p>
 
+      <head>
+          <title>Contact Form</title>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+          <script type="text/javascript">
+              (function() {
+                  // https://dashboard.emailjs.com/admin/account
+                  emailjs.init({
+                    publicKey: "zg2E6XIqMP5u0FOU8",
+                  });
+              })();
+          </script>
+          <script type="text/javascript">
+              window.onload = function() {
+                  document.getElementById('contact-form').addEventListener('submit', function(event) {
+                      event.preventDefault();
+                      // these IDs from the previous steps
+                      emailjs.sendForm('contact_service', 'contact_form', this)
+                          .then(() => {
+                              console.log('SUCCESS!');
+                          }, (error) => {
+                              console.log('FAILED...', error);
+                          });
+                  });
+              }
+          </script>
+      </head>
+      <body>
+          <form id="contact-form">
+              <!-- To simplify the tutorial, the value is static. -->
+              <input type="hidden" name="time" value="Mar 10 2025 08:46">
+              <label>Name</label>
+              <input type="text" name="name" required>
+              <label>Email</label>
+              <input type="email" name="email" required>
+              <label>Subject</label>
+              <input type="text" name="title" required>
+              <label>Message</label>
+              <textarea name="message" required></textarea>
+              <input type="submit" value="Send">
+          </form>
+      </body>
+
         <div class="card" style="padding:14px;border-radius:16px;background:rgba(255,255,255,.72);box-shadow:none">
           <p class="muted" style="margin:0">
             <b style="color:var(--text)">Email:</b> hello@yourdomain.com<br />
@@ -391,9 +413,6 @@
           </p>
         </div>
 
-        <p class="muted" style="margin-bottom:0;margin-top:12px">
-          Want me to wire up a real form? Tell me which service you want to use.
-        </p>
       </div>
     </section>
 
